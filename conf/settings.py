@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
 
     #local
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
     'tools.apps.ToolsConfig'
 
 
