@@ -1,5 +1,10 @@
 {% extends 'tools/base.html'%}
 
+
+<!-- {% include 'registrations/login.html' %} -->
+
+
 {% block content %}
-<h1>home page</h1>
+This is the home page!
+<a href="{% url 'login' %}">Login</a>
 {% endblock content %}
