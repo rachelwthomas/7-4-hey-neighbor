@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic.base import TemplateView
 from django.urls import reverse
+from django.shortcuts import redirect
 from django.views import generic
 
 from .models import Tools
@@ -17,7 +18,7 @@ class CreateView(UserPassesTestMixin,generic.CreateView):
     model = Tools
     fields = ['name', 'picture', 'price']
 
-    def text_func(self):
+    def test_func(self):
         return self.request.user.is_superuser
 
     def handle_no_permission(self):
