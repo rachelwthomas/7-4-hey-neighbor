@@ -21,5 +21,11 @@ class Tools(models.Model):
     price = models.IntegerField(null=True)
     neighbor = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('tools:my_tool_list')

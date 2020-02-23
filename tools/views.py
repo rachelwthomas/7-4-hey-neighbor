@@ -13,7 +13,8 @@ class ListView(generic.ListView):
     template_name = 'tools/my_tool_list.html'
     model = Tools
 
-class CreateView(UserPassesTestMixin,generic.CreateView):
+
+class CreateView(LoginRequiredMixin,generic.CreateView):
     template_name = 'tools/create.html'
     model = Tools
     fields = ['name', 'picture', 'price']
