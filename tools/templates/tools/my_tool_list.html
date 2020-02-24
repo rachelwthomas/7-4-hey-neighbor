@@ -5,10 +5,12 @@
 {% block content %}
   <h1>This is my tool page</h1>
     {% for tools in object_list %}
-      <p>{{tools.name}}</p>
-      <p><img src="{{tools.picture}}" alt=""></p>
-      <p>${{tools.price}}</p>
-      <p>{{tools.neighbor}}</p>
+    <div class="tool-container">
+      <div>{{tools.name}}</div>
+      <div><img src="{{tools.picture}}" alt=""></div>
+      <span>${{tools.price}}</span>
+      <span>{{tools.neighbor}}</span>
+    </div>
     {% endfor %}
   <a href="{% url 'tools:create' %}">Add Tool</a>
 {% endblock content %}

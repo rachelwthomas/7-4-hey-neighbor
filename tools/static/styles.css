@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EAECEF;
+}
+
+.navbar {
+  background-color: #c80815;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0px;
+
+
+}
+
+nav li {
+  list-style: none;
+  margin-right: 17px;
+
+}
+
+nav li a {
+  color: #FFF;
+  font-weight: bold;
+}
+
+/* *****************************************LOGIN PAGE */
+
+.login-container {
+  padding-top: 50px;
+
+}
+
+.login-container button{
+  margin-right: 15px;
+}
+
+/* ******************************************TOOL CONTAINER */
+
+.tool-container {
+  border: solid 1px black;
+}

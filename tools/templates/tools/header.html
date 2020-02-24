@@ -1,13 +1,16 @@
-<nav>
+<nav class="navbar">
   <ul>
     <li><a href="{% url 'tools:index' %}">Home</a></li>
     <li><a href="{% url 'tools:my_tool_list' %}">My Tools</a></li>
 
-    {% if request.user.is_authenticated %}
-      <li><a href="{% url 'logout' %}">Logout</a></li>
-    {% else %}
-      <li><a href="{% url 'login' %}">Login</a></li>
-    {% endif %}
+
+
+      {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+      {% endif %}
+
 
   </ul>
 </nav>
