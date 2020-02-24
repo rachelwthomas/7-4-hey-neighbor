@@ -12,7 +12,7 @@
       <div class="row no-gutters mt-3">
         <div class="col-9">
         <span class="row no-gutters">Rental: ${{tools.price}}</span>
-        <span class="neighbor">Neighbor: {{tools.neighbor}}</span>
+        <span class="neighbor"><a href="#">Neighbor: {{tools.neighbor}}</a></span>
         </div>
         <div class="col-3">
         <button class="btn btn-success">RENT</button>
@@ -24,6 +24,6 @@
 
 
   <div class="add-new-tool">
-    <a href="{% url 'tools:create' %}">Add Tool</a>
+    <a href="{% url 'tools:tool_create' %}">Add Tool</a>
   </div>
 {% endblock content %}

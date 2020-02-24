@@ -4,19 +4,24 @@ from django.urls import reverse
 from django.shortcuts import redirect
 from django.views import generic
 
-from .models import Tools
+from .models import Tool
 
 class IndexView(TemplateView):
     template_name = 'tools/index.html'
 
 class ListView(generic.ListView):
-    template_name = 'tools/my_tool_list.html'
-    model = Tools
+    template_name = 'tools/tool_list.html'
+    model = Tool
+
+    def get_queryset(self):
+        if 'pk' in self.kwargs:
+            return Tool.objects.filter(neighbor = self.request.user)
+        return Tool.objects.all()
 
 
 class CreateView(LoginRequiredMixin,generic.CreateView):
     template_name = 'tools/create.html'
-    model = Tools
+    model = Tool
     fields = ['name', 'picture', 'price']
 
     def test_func(self):

@@ -5,7 +5,7 @@ from django.urls import reverse
 
 User = get_user_model()
 
-class Tools(models.Model):
+class Tool(models.Model):
 
     AVAILABLE = 'AVAILABLE'
     NOT_AVAILABLE = 'NOT_AVAILABLE'
@@ -28,4 +28,4 @@ class Tools(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('tools:my_tool_list')
+        return reverse('tools:user_tool_list', args=(str(self.neighbor.id)))

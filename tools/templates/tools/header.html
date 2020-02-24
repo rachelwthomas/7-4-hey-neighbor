@@ -1,7 +1,11 @@
 <nav class="navbar">
   <ul>
     <li><a href="{% url 'tools:index' %}">Home</a></li>
-    <li><a href="{% url 'tools:my_tool_list' %}">My Tools</a></li>
+    {% if request.user.is_authenticated %}
+    <li><a href="{% url 'tools:user_tool_list' request.user.id %}">My Tools</a></li>
+    {% endif %}
+
+    <li><a href="{% url 'tools:tool_list' %}">Browser Tools</a></li>
 
 
 

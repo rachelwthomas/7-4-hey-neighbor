@@ -63,8 +63,13 @@ nav li a {
 .tool-img {
   border: solid 1px black;
 }
-.neighbor {
-  
+.neighbor a {
+  color: #000;
+}
+
+.neighbor a:hover {
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .tool-name {
