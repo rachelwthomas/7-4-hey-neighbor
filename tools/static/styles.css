@@ -63,8 +63,15 @@ nav li a {
 .tool-img {
   border: solid 1px black;
 }
+.neighbor {
+  
+}
 
 .tool-name {
   font-size: 22px;
   font-weight: bold;
+}
+
+.add-new-tool {
+  background-color: #FFF;
 }

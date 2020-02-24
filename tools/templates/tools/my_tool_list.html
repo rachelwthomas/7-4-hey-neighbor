@@ -7,12 +7,23 @@
   <div class="d-flex flex-wrap justify-content-center">
     {% for tools in object_list %}
     <div class="tool-container col-3">
-      <div class="tool-name">{{tools.name}}</div>
-      <div class="tool-img"><img src="{{tools.picture}}" alt=""></div>
-      <p>Rental: ${{tools.price}}</p>
-      <p>Neighbor: {{tools.neighbor}}</p>
+        <div class="tool-name">{{tools.name}}</div>
+        <div class="tool-img"><img src="{{tools.picture}}" alt=""></div>
+      <div class="row no-gutters mt-3">
+        <div class="col-9">
+        <span class="row no-gutters">Rental: ${{tools.price}}</span>
+        <span class="neighbor">Neighbor: {{tools.neighbor}}</span>
+        </div>
+        <div class="col-3">
+        <button class="btn btn-success">RENT</button>
+        </div>
+      </div>
     </div>
     {% endfor %}
   </div>
-  <a href="{% url 'tools:create' %}">Add Tool</a>
+
+
+  <div class="add-new-tool">
+    <a href="{% url 'tools:create' %}">Add Tool</a>
+  </div>
 {% endblock content %}
