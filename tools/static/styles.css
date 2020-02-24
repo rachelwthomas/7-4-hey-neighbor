@@ -6,6 +6,14 @@ body {
   background-color: #EAECEF;
 }
 
+img {
+  width: 100%;
+}
+
+.main-content {
+  padding: 0px;
+}
+
 .navbar {
   background-color: #c80815;
 }
@@ -22,11 +30,13 @@ nav li {
   list-style: none;
   margin-right: 17px;
 
+
 }
 
 nav li a {
   color: #FFF;
   font-weight: bold;
+  font-size: 20px;
 }
 
 /* *****************************************LOGIN PAGE */
@@ -43,5 +53,18 @@ nav li a {
 /* ******************************************TOOL CONTAINER */
 
 .tool-container {
+  background-color: #FFF;
+  margin-top: 20px;
+  margin-right: 20px;
+  box-shadow: 5px 5px 5px #D1D1D1;
+  padding: 20px;
+}
+
+.tool-img {
   border: solid 1px black;
+}
+
+.tool-name {
+  font-size: 22px;
+  font-weight: bold;
 }

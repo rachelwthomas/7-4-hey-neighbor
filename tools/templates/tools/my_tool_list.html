@@ -4,13 +4,15 @@
 
 {% block content %}
   <h1>This is my tool page</h1>
+  <div class="d-flex flex-wrap justify-content-center">
     {% for tools in object_list %}
-    <div class="tool-container">
-      <div>{{tools.name}}</div>
-      <div><img src="{{tools.picture}}" alt=""></div>
-      <span>${{tools.price}}</span>
-      <span>{{tools.neighbor}}</span>
+    <div class="tool-container col-3">
+      <div class="tool-name">{{tools.name}}</div>
+      <div class="tool-img"><img src="{{tools.picture}}" alt=""></div>
+      <p>Rental: ${{tools.price}}</p>
+      <p>Neighbor: {{tools.neighbor}}</p>
     </div>
     {% endfor %}
+  </div>
   <a href="{% url 'tools:create' %}">Add Tool</a>
 {% endblock content %}
