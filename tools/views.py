@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic.base import TemplateView
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect
 from django.views import generic
 
@@ -33,6 +33,31 @@ class CreateView(LoginRequiredMixin,generic.CreateView):
     def form_valid(self, form):
         form.instance.neighbor = self.request.user
         return super().form_valid(form)
+
+class ToolUpdateView(LoginRequiredMixin,UserPassesTestMixin,generic.UpdateView):
+    model = Tool
+    template_name = 'tools/edit.html'
+    fields = ['name', 'picture', 'price']
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.neighbor == self.request.user
+
+    def handle_no_permission(self):
+        return redirect('tools/index.html')
+
+
+class ToolDeleteView(LoginRequiredMixin,UserPassesTestMixin,generic.DeleteView):
+    model = Tool
+    success_url = reverse_lazy('tools:tool_list')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.neighbor == self.request.user
+
+    def handle_no_permission(self):
+        return redirect('tools/index.html')
+
 
 
 

@@ -16,6 +16,8 @@
         </div>
         <div class="col-3">
         <button class="btn btn-success">RENT</button>
+          <a class="btn" href="{% url 'tools:edit_tool' tools.id %}">Edit</a>
+          <a class="btn" href="{% url 'tools:delete_tool' tools.id %}">Delete</a>
         </div>
       </div>
     </div>
