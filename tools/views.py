@@ -27,6 +27,7 @@ class CreateView(LoginRequiredMixin,generic.CreateView):
     def test_func(self):
         return self.request.user.is_superuser
 
+#if user doens't have permission it will redirect to this page
     def handle_no_permission(self):
         return redirect('tools/index.html')
 
@@ -43,8 +44,9 @@ class ToolUpdateView(LoginRequiredMixin,UserPassesTestMixin,generic.UpdateView):
         obj = self.get_object()
         return obj.neighbor == self.request.user
 
+#if user doens't have permission it will redirect to this page
     def handle_no_permission(self):
-        return redirect('tools/index.html')
+        return redirect('tools:tool_list')
 
 
 class ToolDeleteView(LoginRequiredMixin,UserPassesTestMixin,generic.DeleteView):
@@ -56,7 +58,7 @@ class ToolDeleteView(LoginRequiredMixin,UserPassesTestMixin,generic.DeleteView):
         return obj.neighbor == self.request.user
 
     def handle_no_permission(self):
-        return redirect('tools/index.html')
+        return redirect('tools:tool_list')
 
 
 

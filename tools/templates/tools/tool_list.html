@@ -5,19 +5,22 @@
 {% block content %}
   <h1>This is my tool page</h1>
   <div class="d-flex flex-wrap justify-content-center">
-    {% for tools in object_list %}
+    {% for tool in object_list %}
     <div class="tool-container col-sm-6 col-lg-3">
-        <div class="tool-name">{{tools.name}}</div>
-        <div class="tool-img"><img src="{{tools.picture}}" alt=""></div>
+        <div class="tool-name">{{tool.name}}</div>
+        <div class="tool-img"><img src="{{tool.picture}}" alt=""></div>
       <div class="row no-gutters mt-3">
         <div class="col-9">
-        <span class="row no-gutters">Rental: ${{tools.price}}</span>
-        <span class="neighbor"><a href="#">Neighbor: {{tools.neighbor}}</a></span>
+        <span class="row no-gutters">Rental: ${{tool.price}}</span>
+        <span class="neighbor"><a href="#">Neighbor: {{tool.neighbor}}</a></span>
         </div>
         <div class="col-3">
+
         <button class="btn btn-success">RENT</button>
-          <a class="btn" href="{% url 'tools:edit_tool' tools.id %}">Edit</a>
-          <a class="btn" href="{% url 'tools:delete_tool' tools.id %}">Delete</a>
+          {% if tool.neighbor == request.user %}
+          <a class="btn" href="{% url 'tools:edit_tool' tool.id %}">Edit</a>
+          <a class="btn" href="{% url 'tools:delete_tool' tool.id %}">Delete</a>
+          {% endif %}
         </div>
       </div>
     </div>
