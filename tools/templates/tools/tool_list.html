@@ -3,7 +3,7 @@
 
 
 {% block content %}
-  <h1>This is my tool page</h1>
+  <h1 class="d-flex justify-content-center mt-4">Tool List</h1>
   <div class="d-flex flex-wrap justify-content-center">
     {% for tool in object_list %}
     <div class="tool-container col-sm-6 col-lg-3">
@@ -28,7 +28,7 @@
   </div>
 
 
-  <div class="add-new-tool">
-    <a href="{% url 'tools:tool_create' %}">Add Tool</a>
-  </div>
+      <div class="d-flex justify-content-end mr-5 mb-5">
+      <a class="btn btn-primary" href="{% url 'tools:tool_create' %}">Add Tool</a>
+      </div>
 {% endblock content %}
